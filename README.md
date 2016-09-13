@@ -40,8 +40,7 @@
         }
     }
  
- #### 3.接收返回结果
-
+#### 3.接收返回结果
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
