@@ -29,7 +29,7 @@
 
 #### 2.监听PopupWindow点击事件
 
-  @Override
+    @Override
     public void mothedSelected(int mothed) {
         if (mothed == 1) {//相机
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -40,8 +40,9 @@
     }
  
  #### 3.接收返回结果
- 
- @Override
+
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1001) {//相册回结果
@@ -57,11 +58,11 @@
             if (resultCode == Activity.RESULT_OK) {
                 Bundle bundle = data.getExtras();
                 Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
-//                ((ImageView) findViewById(R.id.imageview)).setImageBitmap(bitmap);
                 String path = saveBitmapToLoacte(bitmap);
                 Log.w("TAG",path);
             }
         }
-    }
+   }
+ 
 
  
