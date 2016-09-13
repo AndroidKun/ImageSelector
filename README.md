@@ -4,7 +4,8 @@
  ![github](https://github.com/AndroidKun/ImageSelector/blob/master/images/Screenshot_2016-09-13-16-11-21.png)
   ![github](https://github.com/AndroidKun/ImageSelector/blob/master/images/Screenshot_2016-09-13-16-12-21.png)
 ### Gradle
-'compile 'com.androidkun:imageselector:1.0.0''
+
+    compile 'com.androidkun:imageselector:1.0.0'
 ### 使用方法
 #### 1.初始化SelectMothedPopupWindow
 
