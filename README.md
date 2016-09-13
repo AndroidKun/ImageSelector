@@ -7,7 +7,8 @@
 'compile 'com.androidkun:imageselector:1.0.0''
 ### 使用方法
 #### 1.初始化SelectMothedPopupWindow
-/**
+
+    /**
      * PopupWindow
      */
     private SelectMothedPopupWindow selectMothedPopupWindow;
@@ -19,14 +20,15 @@
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initPopuWindow();
     }
 
     private void initPopuWindow() {
          selectMothedPopupWindow = new SelectMothedPopupWindow(this);
     }
+
 #### 2.监听PopupWindow点击事件
+
   @Override
     public void mothedSelected(int mothed) {
         if (mothed == 1) {//相机
@@ -36,7 +38,9 @@
             startActivityForResult(new Intent(this, SelectImageActivity.class).putExtra("SELECT_NUM", selectNum), 1001);
         }
     }
+ 
  #### 3.接收返回结果
+ 
  @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -59,4 +63,5 @@
             }
         }
     }
+
  
