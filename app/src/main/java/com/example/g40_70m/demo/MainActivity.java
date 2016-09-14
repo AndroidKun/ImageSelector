@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements SelectMothedPopup
         if(selectMothedPopupWindow == null){
             selectMothedPopupWindow = new SelectMothedPopupWindow(this);
         }
+        
         selectMothedPopupWindow.show(this,findViewById(R.id.main),this);
     }
 
