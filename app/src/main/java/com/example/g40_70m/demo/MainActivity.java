@@ -9,9 +9,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.androidkun.imageselectorlibrary.activity.SelectImageActivity;
 import com.androidkun.imageselectorlibrary.utils.SelectMothedPopupWindow;
@@ -32,22 +30,13 @@ public class MainActivity extends AppCompatActivity implements SelectMothedPopup
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        initPopuWindow();
-    }
-
-    private void initPopuWindow() {
-         selectMothedPopupWindow = new SelectMothedPopupWindow(this);
     }
 
     public void selectImage(View view){
-        selectMothedPopupWindow.showAtLocation(findViewById(R.id.main), Gravity.BOTTOM, 0, 0);
-        // 设置背景颜色变暗
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = .3f;
-        getWindow().setAttributes(lp);
-
-        selectMothedPopupWindow.setOnImageDirSelected(this);
+        if(selectMothedPopupWindow == null){
+            selectMothedPopupWindow = new SelectMothedPopupWindow(this);
+        }
+        selectMothedPopupWindow.show(this,findViewById(R.id.main),this);
     }
 
     @Override

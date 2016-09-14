@@ -1,6 +1,7 @@
 package com.androidkun.imageselectorlibrary.utils;
 
 import android.app.Activity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,15 @@ public class SelectMothedPopupWindow extends BasePopupWindowForListView<ImageFlo
             }
 
         });
+    }
+
+    public void show(Activity activity,View parent,OnMothedSelected onMothedSelected){
+        this.showAtLocation(parent, Gravity.BOTTOM, 0, 0);
+        // 设置背景颜色变暗
+        WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+        lp.alpha = .3f;
+        activity.getWindow().setAttributes(lp);
+        this.setOnImageDirSelected(onMothedSelected);
     }
 
     @Override
