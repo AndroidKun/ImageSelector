@@ -5,9 +5,9 @@
   ![github](https://github.com/AndroidKun/ImageSelector/blob/master/images/Screenshot_2016-09-13-16-12-21.png)
 ### Gradle
 
-    compile 'com.androidkun:imageselector:1.0.0'
+    compile 'com.androidkun:imageselector:1.0.1'
 ### 使用方法
-#### 1.初始化SelectMothedPopupWindow
+#### 1.处理按钮点击事件
 
     /**
      * PopupWindow
@@ -17,16 +17,26 @@
      * 可选择图片的最大数量
      */
     private int selectNum = 3;
+    private Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initPopuWindow();
+        btn = (Button) findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectImage();
+            }
+        });
+    }
+    private void selectImage(){
+        if(selectMothedPopupWindow == null){
+            selectMothedPopupWindow = new SelectMothedPopupWindow(this);
+        }
+        selectMothedPopupWindow.show(this,findViewById(R.id.main),this);
     }
 
-    private void initPopuWindow() {
-         selectMothedPopupWindow = new SelectMothedPopupWindow(this);
-    }
 
 #### 2.监听PopupWindow点击事件
 
